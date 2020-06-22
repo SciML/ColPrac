@@ -1,4 +1,4 @@
-# ColPrac: Collaborative Practices 
+# ColPrac: Contributor's Guide on Collaborative Practices for Community Packages
 
 This document describes some best practices for collaborating on repositories.
 Following these practices makes it easier for contributors (new and old) to understand what is expected of them.
