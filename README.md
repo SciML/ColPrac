@@ -129,7 +129,7 @@ This means you can update the `[compat]` section of a group of packages and test
 ### Changing dependency compatibility 
 
 *   Changing dependency compatibility should be a non-breaking feature.
-    *   i.e. post-1.0 change patch version number, post-1.0 change the minor version number.
+    *   i.e. pre-1.0 change patch version number, post-1.0 change the minor version number.
     *   For instance, adding or removing compatibility with a particular __version__ of a current dependency, which may or may not require internal code changes.
     *   This also applies when adding or removing packages as dependencies.
 *   Changing compatibility with dependencies **may** be a breaking release, if it breaks the user-facing interface.
