@@ -73,7 +73,7 @@ This page offers some further guidance on conventions that can be helpful when c
 *   You should help __review__ your PRs, even though you cannot __approve__ your own PRs.  
     *   For instance, start the review process by commenting on why certain bits of the code changed, or highlighting places where you would particularly like reviewer feedback.
 
-## Guidance on reviewing, approving and merging PRs {#guidance-on-reviewing-approving-and-merging-prs}
+## Guidance on reviewing, approving and merging PRs
 
 *   Review comments should be phrased as questions, as it shows you are open to new ideas. 
     *   For instance, “Why did you change this to X? Doesn’t that prevent Y?” rather than “You should not have changed this, it will prevent Y”.
@@ -118,14 +118,14 @@ Some more details on the use of `-DEV`.
     *   Returning an object of a type that’s behaviour has changed.
     *   Subtyping an object that has changed.
 
-### Dropping support for earlier versions of Julia {#dropping-support-for-earlier-versions-of-julia}
+### Dropping support for earlier versions of Julia
 
 *   Changing Julia version compatibility must be a non-breaking feature.
 *   It cannot alone be breaking, since Julia versions that are now unsupported will just never see this newer package release.
 *   Tagging the change as a Minor release makes it possible to release backported bug fixes for users stuck on the old Julia version. For instance, if the current release is `5.4.0` then we can still go back and release `5.3.1`.
 *   Dropping support for earlier versions of Julia has a cost - it prevents users on those versions, such as the Long-Term Support version, from using newer releases of your package - so there should usually be a compelling reason to drop support.
 
-### Accidental breaking releases {#accidental-breaking-releases}
+### Accidental breaking releases
 
 **Do not panic**, these things sometimes slip through. 
 
@@ -154,12 +154,12 @@ Now I look at my change again. If I can add the same functionality in a non-brea
 
 ---
 
-## Changes that are not considered breaking {#changes-that-are-not-considered-breaking}
+## Changes that are not considered breaking
 
-Everything on this list can, in theory, break users' code. See [XKCD#1172](https://xkcd.com/1172/). However, we consider changes to these things to be non-breaking from the perspective of package versioning. \
+Everything on this list can, in theory, break users' code. See [XKCD#1172](https://xkcd.com/1172/). However, we consider changes to these things to be non-breaking from the perspective of package versioning. 
 
 *   **Bugs:** We may make backwards incompatible behavior changes if the current implementation is clearly broken, that is, if it contradicts the documentation or if a well-understood behavior is not properly implemented due to a bug.
-*   **Internal changes: **Non-public API may be changed or removed. The public API is all exported symbols, plus any unexported symbols that are explicitly documented as part of the public API, for instance documented as part of standard usage in the README or hosted documentation.
+*   **Internal changes:** Non-public API may be changed or removed. The public API is all exported symbols, plus any unexported symbols that are explicitly documented as part of the public API, for instance documented as part of standard usage in the README or hosted documentation.
 *   **Exception behavior:** 
     *   Exceptions may be replaced with non-error behavior. For instance, we may change a function to compute a result instead of raising an exception, even if that error is documented. 
     *   Error message text may change.
@@ -167,9 +167,9 @@ Everything on this list can, in theory, break users' code. See [XKCD#1172](https
 *   **Floating point numerical details:** The specific floating point values may change at any time. Users should rely only on approximate accuracy, numerical stability, or statistical properties, not on the specific bits computed.
 *   **New exports**: Adding a new export is never considered breaking. However, one should consider carefully before exporting a commonly used name that might clash with an existing name (especially, if clashing with `Base`). 
 *   **New supertypes**: 
-    *   A new supertype may be added to an existing hierarchy. That is, changing `A &lt;: B` to `A &lt;: B &lt;: C` or `A &lt;: C &lt;: B`. This includes adding a supertype to something without one, i.e. with supertype `Any`.
+    *   A new supertype may be added to an existing hierarchy. That is, changing `A <: B` to `A <: B <: C` or `A <: C <: B`. This includes adding a supertype to something without one, i.e. with supertype `Any`.
     *   A `Union` constant may be replaced by an abstract type that covers all elements of the union.
-*   **Changes to the string representation: **The output of `print`/`string` or `show`/`repr` on a type may change at any time. Users should not depend on the exact text, but rather on the meaning of the text.  Changing the string representation often breaks downstream packages tests, because it is hard to write test-cases that depend only on meaning (though unit tests with mocking can be shielded from this kind of breaking).
+*   **Changes to the string representation:** The output of `print`/`string` or `show`/`repr` on a type may change at any time. Users should not depend on the exact text, but rather on the meaning of the text.  Changing the string representation often breaks downstream packages tests, because it is hard to write test-cases that depend only on meaning (though unit tests with mocking can be shielded from this kind of breaking).
 
 (This guidance on non-breaking changes is inspired by [https://www.tensorflow.org/guide/versions](https://www.tensorflow.org/guide/versions).)
 
