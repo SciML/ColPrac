@@ -172,3 +172,19 @@ Everything on this list can, in theory, break users' code. See [XKCD#1172](https
 *   **Changes to the string representation: **The output of `print`/`string` or `show`/`repr` on a type may change at any time. Users should not depend on the exact text, but rather on the meaning of the text.  Changing the string representation often breaks downstream packages tests, because it is hard to write test-cases that depend only on meaning (though unit tests with mocking can be shielded from this kind of breaking).
 
 (This guidance on non-breaking changes is inspired by [https://www.tensorflow.org/guide/versions](https://www.tensorflow.org/guide/versions).)
+
+
+# Appendix:
+
+## Marking a Repository as following ColPrac:
+As mentioned at the top, community repositories following ColPrac, should link to it in their `README.md`.
+One way to do that is with a GitHub badge.
+
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+
+```markdown
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+```
+
+If you have a `CONTRIBUTING.md` then you should also link to it there.
+In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
