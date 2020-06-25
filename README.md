@@ -133,7 +133,8 @@ This means you can update the `[compat]` section of a group of packages and test
     *   This also applies when adding or removing packages as dependencies.
     *   The new feature in question is the ability to use with a different set of packages.
 *   Changing a dependency to resolve a bug is a bug-fix.
-    *   For example if a bug in a downsteam dependency is causing a problem in your package restricting compat to not allow that version would be a bug-fix.
+    *   i.e. pre/post-1.0 change patch version number.
+    *   For instance, if a bug in a downstream dependency is causing a problem in your package restricting compat to not allow that version would be a bug-fix.
 *   Changing compatibility with dependencies **may** be a breaking release, if it breaks the user-facing interface.
     That is to say if the dependency’s API leaks into your API.
     There are three ways that this can happen:
