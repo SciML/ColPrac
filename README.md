@@ -185,6 +185,15 @@ Now I look at my change again.
 If I can add the same functionality in a non-breaking way - for example, make a new internal function for my use - then I would do so and tag v1.15.2 or v1.16.0 depending on what had to change.
 If I cannot make an equivalent non-breaking change, then I would have to make the breaking change and tag v2.0.0.
 
+## Guidance on automatically enforcing guidelines
+
+Many of these guidelines can and should be enforced automatically.
+
+- **GitHub:** [Defining the mergeability of pull requests](https://help.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests)
+- **Bitbucket:** [Suggest or require checks before a merge](https://support.atlassian.com/bitbucket-cloud/docs/suggest-or-require-checks-before-a-merge/)
+- **GitLab:** [Status checks that are required to allow a merge requested [WIP]](https://gitlab.com/gitlab-org/gitlab/-/issues/15930)
+
+
 ---
 
 ## Changes that are not considered breaking
