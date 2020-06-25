@@ -131,6 +131,7 @@ This means you can update the `[compat]` section of a group of packages and test
     *   i.e. pre-1.0 change patch version number, post-1.0 change the minor version number.
     *   For instance, adding or removing compatibility with a particular __version__ of a current dependency, which may or may not require internal code changes.
     *   This also applies when adding or removing packages as dependencies.
+    *   The new feature in question is the ability to use with a different set of packages.
 *   Changing a dependency to resolve a bug is a bug-fix.
     *   For example if a bug in a downsteam dependency is causing a problem in your package restricting compat to not allow that version would be a bug-fix.
 *   Changing compatibility with dependencies **may** be a breaking release, if it breaks the user-facing interface.
