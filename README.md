@@ -48,8 +48,7 @@ including in pull requests, issues, and discussions.
     *   contribute meaningfully to several discussions on issues.
 *   You may ask to be added as a collaborator.
 It is not rude to ask.
-
-# 
+ 
 
 ---
 
@@ -128,10 +127,12 @@ This means you can update the `[compat]` section of a group of packages and test
 
 ### Changing dependency compatibility 
 
-*   Changing dependency compatibility should be a non-breaking feature.
+*   Generally changing dependency compatibility should be a non-breaking feature.
     *   i.e. pre-1.0 change patch version number, post-1.0 change the minor version number.
     *   For instance, adding or removing compatibility with a particular __version__ of a current dependency, which may or may not require internal code changes.
     *   This also applies when adding or removing packages as dependencies.
+*   Changing a dependency to resolve a bug is a bug-fix.
+    *   For example if a bug in a downsteam dependency is causing a problem in your package restricting compat to not allow that version would be a bug-fix.
 *   Changing compatibility with dependencies **may** be a breaking release, if it breaks the user-facing interface.
     That is to say if the dependency’s API leaks into your API.
     There are three ways that this can happen:
