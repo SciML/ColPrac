@@ -184,7 +184,7 @@ If I cannot make an equivalent non-breaking change, then I would have to make th
 
 ## Guidance on automatically enforcing guidelines
 
-Many of these guidelines can be enforced automatically.
+Many of these guidelines can and should be enforced automatically.
 
 - **GitHub:** [Defining the mergeability of pull requests](https://help.github.com/en/github/administering-a-repository/defining-the-mergeability-of-pull-requests)
 - **Bitbucket:** [Suggest or require checks before a merge](https://support.atlassian.com/bitbucket-cloud/docs/suggest-or-require-checks-before-a-merge/)
