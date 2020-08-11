@@ -240,7 +240,7 @@ One way to do that is with a GitHub badge.
 ```
 
 In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
-But if you have a `CONTRIBUTING.md` then you should also link to it there; and indicate how the content of ColPrac vs the content of your `CONTRIBUTING.md` relate.
+If your package has its own `CONTRIBUTING.md` then you should also link to ColPrac there, and indicate how the contents of ColPrac relates to the `CONTRIBUTING.md`.
 For example by stating:
 
 > We follow the [ColPrac guide for collaborative practices]((https://github.com/SciML/ColPrac)).
