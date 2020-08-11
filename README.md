@@ -245,4 +245,4 @@ For example by stating:
 
 > We follow the [ColPrac guide for collaborative practices]((https://github.com/SciML/ColPrac)).
 > New contributor should make sure to read that guide.
-> Following here are some additional clarifications and practices we follow.
+> Below are some additional practices we follow.
