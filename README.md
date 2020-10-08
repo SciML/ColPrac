@@ -98,7 +98,7 @@ Anything detailed here should be considered less important than the main Collabo
 
 ### Incrementing the package version
 
-*   Follow the extension of [SemVer 2.0]([https://semver.org](https://semver.org)) encoded in Julia package manager Pkg.jl.
+*   Follow the extension of [SemVer 2.0](https://semver.org) encoded in Julia package manager Pkg.jl.
 *   For a version number X.Y.Z, with Major version X, Minor version Y, Patch version Z:
     *   Post-1.0.0: for breaking changes increment X, for non-breaking new features increment Y, for bug-fixes increment Z.
     *   Pre-1.0.0: for breaking changes increment Y, for non-breaking (feature or bug-fix) increment Z.
