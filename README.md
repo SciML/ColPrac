@@ -185,6 +185,20 @@ Now I look at my change again.
 If I can add the same functionality in a non-breaking way - for example, make a new internal function for my use - then I would do so and tag v1.15.2 or v1.16.0 depending on what had to change.
 If I cannot make an equivalent non-breaking change, then I would have to make the breaking change and tag v2.0.0.
 
+### Accidental support for an unsupported dependency
+
+Say you were updating PackageA to support a new version of a dependency, PackageB.
+For example, you want PackageA v1.1.0 to support PackageB v0.5 and to discontinue supporting v0.4.
+But say you forgot to remove the compatibility for v0.4, which now no longer works, but other downstream packages that only use v0.4 are now pulling in PackageA v1.1.0 and getting errors.
+
+Simply releasing a patch for PackageA (v1.1.1) that removes support for v0.4 won't work in this instance because downstream packages will continue to pull in v1.1.0.
+It might seem sufficient to just pin the downstream packages to use v1.0.0 but there may be a lot of them to fix and you can't be certain you're aware of them all.
+It also does nothing to prevent new compatibility issues arising in future.
+
+To fix this, you should still release a patch of PackageA (v1.1.1) that removes support for v0.4 of PackageB but you should then mark v1.1.0 of PackageA as broken in the registry.
+To do this, simply make a PR to the the registry adding `yanked = true` to the `Version.toml` file under the version causing issues (in this case v1.1.0).
+This marks the release as broken and prevents it from being used by any package from then on.
+
 ## Guidance on automatically enforcing guidelines
 
 Many of these guidelines can and should be enforced automatically.
