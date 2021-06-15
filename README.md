@@ -257,6 +257,6 @@ In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all th
 If your package has its own `CONTRIBUTING.md` then you should also link to ColPrac there, and indicate how the contents of ColPrac relates to the `CONTRIBUTING.md`.
 For example by stating:
 
-> We follow the [ColPrac guide for collaborative practices]((https://github.com/SciML/ColPrac)).
-> New contributor should make sure to read that guide.
+> We follow the [ColPrac guide for collaborative practices](https://github.com/SciML/ColPrac).
+> New contributors should make sure to read that guide.
 > Below are some additional practices we follow.
