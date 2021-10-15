@@ -1,4 +1,4 @@
-# ColPrac: Contributor's Guide on Collaborative Practices for Community Packages
+# ColPrac: Contributing Guide on Collaborative Practices for Community Packages
 
 This document describes some best practices for collaborating on repositories.
 Following these practices makes it easier for contributors (new and old) to understand what is expected of them.
@@ -247,10 +247,10 @@ However, we consider changes to these things to be non-breaking from the perspec
 As mentioned at the top, community repositories following ColPrac, should link to it in their `README.md`.
 One way to do that is with a GitHub badge.
 
-[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+[![ColPrac: Contributing Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributing%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 
 ```markdown
-[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+[![ColPrac: Contributing Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributing%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 ```
 
 In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
