@@ -19,7 +19,8 @@ including in pull requests, issues, and discussions.
 #### Contributing PRs
 
 *   PRs should match the existing code style present in the file.
-*   PRs affecting the public API, including adding new features, must have docs.
+*   PRs affecting the public API, including adding new features, must update the public documentation.
+*   Comments and (possibly internal) docstrings should make the code accessible.
 *   PRs that change code must have appropriate tests.
 *   Changes to the code must be made via PR, not pushing to master.
 
