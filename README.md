@@ -148,6 +148,8 @@ This means you can update the `[compat]` section of a group of packages and test
 *   Changing Julia version compatibility must be a non-breaking feature.
 *   It cannot alone be breaking, since Julia versions that are now unsupported will just never see this newer package release.
 *   Tagging the change as a Minor release makes it possible to release backported bug fixes for users stuck on the old Julia version.
+    * if the package is pre-1.0, minor releases count as breaking. Therefore, tag the release as a patch release unless one intends to
+    support earlier versions of Julia with backports (as needed).
     For instance, if the current release is `5.4.0` then we can still go back and release `5.3.1`.
 *   Dropping support for earlier versions of Julia has a cost - it prevents users on those versions, such as the Long-Term Support version, from using newer releases of your package - so there should usually be a compelling reason to drop support.
 
