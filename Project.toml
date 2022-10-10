@@ -1,0 +1,15 @@
+name = "ColPrac"
+uuid = "e41b4c65-dcf0-4c1f-b7b6-bc66a3ea27a0"
+authors = ["Chris Rackauckas <accounts@chrisrackauckas.com> and contributors"]
+version = "0.1.0"
+
+[deps]
+
+[compat]
+julia = "1.6"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
