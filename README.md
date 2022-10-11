@@ -13,7 +13,6 @@ This document is also only intended for community practices, it is **not** suita
 #### Community Standards
 
 Interactions with people in the community must always follow the [community standards](https://julialang.org/community/standards/),
-
 including in pull requests, issues, and discussions.
 
 #### Contributing PRs
@@ -49,7 +48,6 @@ including in pull requests, issues, and discussions.
     *   contribute meaningfully to several discussions on issues.
 *   You may ask to be added as a collaborator.
 It is not rude to ask.
-
 
 ---
 
