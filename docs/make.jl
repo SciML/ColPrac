@@ -3,7 +3,7 @@ using Documenter
 dir = @__DIR__() * "/.."
 cp(joinpath(dir, "README.md"), joinpath(dir, "docs", "src", "index.md"), force = true)
 
-makedocs(sitename = "COLPRAC",
+makedocs(sitename = "ColPrac",
          authors = "Chris Rackauckas",
          modules = Module[],
          clean = true, doctest = false,
@@ -23,4 +23,4 @@ makedocs(sitename = "COLPRAC",
          ])
 
 deploydocs(;
-           repo = "github.com/SciML/COLPRAC")
+           repo = "github.com/SciML/ColPrac")
