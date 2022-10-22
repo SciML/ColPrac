@@ -1,5 +1,7 @@
 # ColPrac: Contributor's Guide on Collaborative Practices for Community Packages
 
+[![Global Docs](https://img.shields.io/badge/docs-SciML-blue.svg)](https://docs.sciml.ai/ColPrac/stable/)
+
 This document describes some best practices for collaborating on repositories.
 Following these practices makes it easier for contributors (new and old) to understand what is expected of them.
 It should be linked to in the README.md.

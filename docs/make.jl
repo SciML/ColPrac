@@ -17,7 +17,7 @@ makedocs(sitename = "ColPrac",
          ],
          format = Documenter.HTML(analytics = "UA-90474609-3",
                                   assets = ["assets/favicon.ico"],
-                                  canonical = "https://colprac.sciml.ai/stable/"),
+                                  canonical = "https://docs.sciml.ai/ColPrac/stable/"),
          pages = [
              "ColPrac: Contributor's Guide on Collaborative Practices for Community Packages" => "index.md",
          ])
