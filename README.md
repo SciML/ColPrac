@@ -252,6 +252,10 @@ One way to do that is with a GitHub badge.
 
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 
+```markdown
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+```
+
 In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
 If your package has its own `CONTRIBUTING.md` then you should also link to ColPrac there, and indicate how the contents of ColPrac relates to the `CONTRIBUTING.md`.
 For example by stating:
