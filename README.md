@@ -86,7 +86,7 @@ Anything detailed here should be considered less important than the main Collabo
 
     *   For instance, start the review process by commenting on why certain bits of the code changed, or highlighting places where you would particularly like reviewer feedback.
 
-## Guidance on reviewing, approving and merging PRs
+## Guidance on reviewing PRs
 
 *   Review comments should be phrased as questions, as it shows you are open to new ideas.
 
