@@ -8,7 +8,7 @@ It should be linked to in the README.md.
 
 There are many good practices that this document does not cover.
 These include other members of the wider community reviewing pull requests (PRs) they are interested in, and maintainers encouraging and supporting people who open issues to make PRs to solve them.
-This document facilitates these other good practices by clarifying what can seem a mysterious process to those who are unfamiliar with it.
+This document facilitates these other good practices by clarifying what can seem like a mysterious process to those who are unfamiliar with it.
 
 This document is also only intended for community practices, it is **not** suitable for solo projects with one maintainer.
 
@@ -25,7 +25,7 @@ including in pull requests, issues, and discussions.
 *   PRs that change code must have appropriate tests.
 *   Changes to the code must be made via PR, not pushing to master.
 
-#### Reviewing, Approving and Merging PRs
+#### Reviewing, Approving, and Merging PRs
 
 *   PRs must have 1 approval before they are merged.
 *   PR authors should not approve their own PRs.
@@ -43,8 +43,8 @@ including in pull requests, issues, and discussions.
 
 #### Becoming a Collaborator (gaining merge rights)
 
-*   Collaborator merge rights are typically assigned at an Organisational level for all repositories in a GitHub organisation, or at a Team level for a subset of repositories.
-*   Before becoming a collaborator it is usual to:
+*   Collaborator merge rights are typically assigned at an Organizational level for all repositories in a GitHub organization, or at a Team level for a subset of repositories.
+*   Before becoming a collaborator, it is usual to:
     *   contribute several PRs,
     *   review constructively and kindly several PRs,
     *   contribute meaningfully to several discussions on issues.
@@ -63,7 +63,7 @@ Anything detailed here should be considered less important than the main Collabo
 
 *   You should usually open an issue about a bug or possible improvement before opening a PR with a solution.
 *   PRs should do a single thing, so that they are easier to review.
-    *   For example, fix one bug, or update compatibility, rather than fixing a bunch of bugs and updating compatibility and adding a new feature.
+    *   For example, fix one bug, or update compatibility, rather than fixing a bunch of bugs, and updating compatibility, and adding a new feature.
 *   PRs should add tests which cover the new or fixed functionality.
 *   PRs that move code should not also change code, so that they are easier to review.
 
@@ -73,15 +73,15 @@ Anything detailed here should be considered less important than the main Collabo
 *   PRs with large improvements to style should not also change functionality.
 
     *   This is to avoid making large diffs that are not the focus of the PR.
-    *   While it is often helpful to fix a few typos in comments on the way past, it is different to using a regex or formatter on the whole project to fix spacing around operators.
+    *   While it is often helpful to fix a few typos in comments on the way past, it is different from using a regex or formatter on the whole project to fix spacing around operators.
 
 *   PRs introducing breaking changes should make this clear when opening the PR.
-*   You should not push commits which commented-out tests.
+*   You should not push commits with commented-out tests.
     *   If pushing a commit for which a test is broken, use the `@test_broken` macro.
     *   Commenting out tests while developing locally is okay, but committing a commented-out test increases the risk of it silently not being run when it should be.
-*   You should not squash down commits while review is still on-going.
+*   You should not squash down commits while review is still ongoing.
 
-    *   Squashing commits prevents the reviewer being able to see what commits are added since the last review.
+    *   Squashing commits prevents the reviewer from seeing what commits have been added since the last review.
 *   You should help __review__ your PRs, even though you cannot __approve__ your own PRs.
 
     *   For instance, start the review process by commenting on why certain bits of the code changed, or highlighting places where you would particularly like reviewer feedback.
@@ -93,7 +93,7 @@ Anything detailed here should be considered less important than the main Collabo
     *   For instance, “Why did you change this to X? Doesn’t that prevent Y?” rather than “You should not have changed this, it will prevent Y”.
 *   Small review suggestions, such as typo fixes, should make use of the `suggested change` feature.
     *   This makes it easier and more likely for all the smaller changes to be made.
-*   Reviewers should continue acting as a reviewer until the PR is merged.
+*   Reviewers should continue acting as reviewers until the PR is merged.
 
 ## Guidance on Package Releases
 
@@ -108,7 +108,7 @@ Anything detailed here should be considered less important than the main Collabo
 
 ### Unreleased Changes and -DEV
 
-Following the Collaborative Practices, when there are unreleased changes in the repository for an extended period of time the version number in the Project.toml should be suffixed with `-DEV`.
+Following the Collaborative Practices, when there are unreleased changes in the repository for an extended period of time, the version number in the Project.toml should be suffixed with `-DEV`.
 This makes it clear that there are unreleased changes.
 Which is useful for many things, including quickly understanding why a bug is still occurring, and working out if a bugfix may need to be backported.
 
@@ -118,29 +118,29 @@ Some more details on the use of `-DEV`.
 
     *   For instance, if the current version is 0.6.3, then the PR making the breaking change could bump it to 0.7.0-DEV.
     *   Things are more complex if a breaking change is made after the version has been suffixed with `-DEV` for a non-breaking change.
-        *   This should be rare since non-breaking changes should be released as soon as possible.
-        *   If it does occur the following rule applies: _if all version numbers to the right of the digit you would increment are zero, then you do not need to change the version; otherwise you do._
-*   Follow-up PRs can then be made which do not need to increment the version.
+        *   This should be rare, since non-breaking changes should be released as soon as possible.
+        *   If it does occur, the following rule applies: _if all version numbers to the right of the digit you would increment are zero, then you do not need to change the version; otherwise, you do._
+*   Follow-up PRs can then be made, which do not need to increment the version.
 *   Once all the follow-up changes have been made, we can make a PR to drop the `-DEV` suffix and make a new release once this PR is merged.
-*   Note that locally when using `pkg”dev Foo...”` to install particular unreleased versions to an environment, Pkg ignores suffixes to the version number.
+*   Note that locally, when using `pkg”dev Foo...”` to install particular unreleased versions to an environment, Pkg ignores suffixes to the version number.
 Pkg treats `0.7.0-DEV` identically to `0.7.0`.
 This means you can update the `[compat]` section of a group of packages and test them together.
 
 ### Changing dependency compatibility
 
-*   Generally changing dependency compatibility should be a non-breaking feature.
-    *   i.e. pre-1.0 change patch version number, post-1.0 change the minor version number.
+*   Generally, changing dependency compatibility should be a non-breaking feature.
+    *   i.e. pre-1.0, change the patch version number; post-1.0, change the minor version number.
     *   For instance, adding or removing compatibility with a particular __version__ of a current dependency, which may or may not require internal code changes.
     *   This also applies when adding or removing packages as dependencies.
     *   The new feature in question is the ability to use with a different set of packages.
 *   Changing a dependency to resolve a bug is a bug-fix.
     *   i.e. pre/post-1.0 change patch version number.
-    *   For instance, if a bug in a downstream dependency is causing a problem in your package restricting compat to not allow that version would be a bug-fix.
+    *   For instance, if a bug in a downstream dependency is causing a problem in your package, restricting compat to not allow that version would be a bug-fix.
 *   Changing compatibility with dependencies **may** be a breaking release, if it breaks the user-facing interface.
-    That is to say if the dependency’s API leaks into your API.
+    That is to say, if the dependency’s API leaks into your API.
     There are three ways that this can happen:
     *   Reexporting a function that has changed.
-    *   Returning an object of a type that’s behaviour has changed.
+    *   Returning an object of a type whose behavior has changed.
     *   Subtyping an object that has changed.
 
 ### Dropping support for earlier versions of Julia
@@ -148,8 +148,8 @@ This means you can update the `[compat]` section of a group of packages and test
 *   Changing Julia version compatibility must be a non-breaking feature.
 *   It cannot alone be breaking, since Julia versions that are now unsupported will just never see this newer package release.
 *   Tagging the change as a Minor release makes it possible to release backported bug fixes for users stuck on the old Julia version.
-    For instance, if the current release is `5.4.0` then we can still go back and release `5.3.1`.
-    * if the package is pre-1.0, minor releases count as breaking. Therefore, tag the release as a patch release unless one intends to
+    For instance, if the current release is `5.4.0`, then we can still go back and release `5.3.1`.
+    * If the package is pre-1.0, minor releases count as breaking. Therefore, tag the release as a patch release unless one intends to
     support earlier versions of Julia with backports (as needed).
 *   Dropping support for earlier versions of Julia has a cost - it prevents users on those versions, such as the Long-Term Support version, from using newer releases of your package - so there should usually be a compelling reason to drop support.
 
@@ -163,10 +163,10 @@ To fix it:
 
 1. Make a PR which reverts the PR that made the breaking change.
 2. Bump the Patch version number in the Project.toml.
-    It was a bug that a breaking API change was made, so a Patch release is correct to fix it.
+    The breaking API change was a bug, so a Patch release is correct to fix it.
 3. Merge the PR and release the new version.
 
-Once the change is reverted you can take stock and decide what to do.
+Once the change is reverted, you can take stock and decide what to do.
 There are generally 2 options:
 
 1. Make a new PR to reimplement the feature in a non-breaking way.
@@ -182,10 +182,10 @@ Maybe I changed what I thought was an internal function, but one that was actual
 Whatever it was, I broke it, and this was not caught in code review.
 
 To fix it, I revert the change, and then tag release v1.15.1.
-Hopefully, I also can add a test to prevent that part of the API being broken by mistake.
+Hopefully, I can also add a test to prevent that part of the API from being broken by mistake.
 
 Now I look at my change again.
-If I can add the same functionality in a non-breaking way - for example, make a new internal function for my use - then I would do so and tag v1.15.2 or v1.16.0 depending on what had to change.
+If I can add the same functionality in a non-breaking way - for example, make a new internal function for my use - then I would do so and tag v1.15.2 or v1.16.0 depending on what had to change.Bu
 If I cannot make an equivalent non-breaking change, then I would have to make the breaking change and tag v2.0.0.
 
 ### Accidental support for an unsupported dependency
@@ -195,11 +195,11 @@ For example, you want PackageA v1.1.0 to support PackageB v0.5 and to discontinu
 But say you forgot to remove the compatibility for v0.4, which now no longer works, but other downstream packages that only use v0.4 are now pulling in PackageA v1.1.0 and getting errors.
 
 Simply releasing a patch for PackageA (v1.1.1) that removes support for v0.4 won't work in this instance because downstream packages will continue to pull in v1.1.0.
-It might seem sufficient to just pin the downstream packages to use v1.0.0 but there may be a lot of them to fix and you can't be certain you're aware of them all.
-It also does nothing to prevent new compatibility issues arising in future.
+It might seem sufficient to just pin the downstream packages to use v1.0.0, but there may be a lot of them to fix, and you can't be certain you're aware of them all.
+It also does nothing to prevent new compatibility issues from arising in the future.
 
-To fix this, you should still release a patch of PackageA (v1.1.1) that removes support for v0.4 of PackageB but you should then mark v1.1.0 of PackageA as broken in the registry.
-To do this, simply make a PR to the the registry adding `yanked = true` to the `Version.toml` file under the version causing issues (in this case v1.1.0).
+To fix this, you should still release a patch of PackageA (v1.1.1) that removes support for v0.4 of PackageB, but you should then mark v1.1.0 of PackageA as broken in the registry.
+To do this, simply make a PR to the registry, adding `yanked = true` to the `Version.toml` file under the version causing issues (in this case v1.1.0).
 This marks the release as broken and prevents it from being used by any package from then on.
 
 ## Guidance on automatically enforcing guidelines
@@ -221,14 +221,14 @@ However, we consider changes to these things to be non-breaking from the perspec
 
 *   **Bugs:** We may make backwards incompatible behavior changes if the current implementation is clearly broken, that is, if it contradicts the documentation or if a well-understood behavior is not properly implemented due to a bug.
 *   **Internal changes:** Non-public API may be changed or removed.
-    The public API is all exported symbols, plus any unexported symbols that are explicitly documented as part of the public API, for instance documented as part of standard usage in the README or hosted documentation.
+    The public API is defined as all exported symbols, plus any unexported symbols that are explicitly documented as part of the public API, for instance, documented as part of standard usage in the README or hosted documentation.
 *   **Exception behavior:**
     *   Exceptions may be replaced with non-error behavior.
     For instance, we may change a function to compute a result instead of raising an exception, even if that error is documented.
 
     *   Error message text may change.
     *   Exception types may change unless the exception type for a specific error condition is specified in the documentation.
-*   **Floating point numerical details:** The specific floating point values may change at any time.
+*   **Floating-point numerical details:** The specific floating-point values may change at any time.
     Users should rely only on approximate accuracy, numerical stability, or statistical properties, not on the specific bits computed.
 *   **New exports**: Adding a new export is never considered breaking.
     However, one should consider carefully before exporting a commonly used name that might clash with an existing name (especially, if clashing with `Base`).
@@ -256,9 +256,9 @@ One way to do that is with a GitHub badge.
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 ```
 
-In many-cases ColPrac serves in the places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
-If your package has its own `CONTRIBUTING.md` then you should also link to ColPrac there, and indicate how the contents of ColPrac relates to the `CONTRIBUTING.md`.
-For example by stating:
+Typically, ColPrac serves in places of a `CONTRIBUTING.md`, having all the common guidance that you would otherwise put there.
+If your package has its own `CONTRIBUTING.md`, then you should also link to ColPrac there, and indicate how the content of ColPrac relates to the `CONTRIBUTING.md`.
+For example, by stating:
 
 > We follow the [ColPrac guide for collaborative practices](https://github.com/SciML/ColPrac).
 > New contributors should make sure to read that guide.
