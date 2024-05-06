@@ -202,7 +202,7 @@ To fix this, you should still release a patch of PackageA (v1.1.1) that removes 
 Compat.toml for the package in the general registry. This should require changing two compat bounds - removing the julia version from the package 
 version that will not work with it, and adding the package version to the julia version it is in fact compatible with.
 
-In some circumstances (help needed to elaborate here) it may still be necessary to yank a package version, for example where it does not
+In some circumstances it may still be necessary to yank a package version, for example where there is a security vulnerability or malicious code like ` rm -rf ` that needs immediate removal, or when the registered version does not
 work on any Julia version at all and a bumping a minor version will not prevent it being loaded by some julia versions.
 
 To do this, simply make a PR to the registry, adding `yanked = true` to the `Version.toml` file under the version causing issues (in this case v1.1.0).
