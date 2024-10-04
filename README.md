@@ -213,19 +213,29 @@ Many of these guidelines can and should be enforced automatically.
 
 ---
 
+## Definition of Public API
+
+The public API is defined as all exported symbols or symbols marked via the `public` keyword (i.e. the full set of names from `Docs.undocumented_names(module)`), plus any unexported symbols that are explicitly documented as part of the public API, for instance, documented as part of standard usage in the README or hosted documentation. Note that the latter part of the definition is a "deprecation path" because the `public` keyword was only introduced in v1.11: it is expected in the future that the public API will be defined strictly as `Docs.undocumented_names(module)`.
+
+For macros, the public API is the documented set of behaviors and functionality. 
+
+## Changes that are considered breaking
+
+* Breaking changes are changes which break functionality in the public API.
+* Functions or variables in a package are exported or via the `public` keyword are public API. The full set of public names can be found by `names(Package)`
+  * `Docs.undocumented_names(module)` are still considered part of the public API, though it is highly recommended that any such names get documented ASAP.
+* Changes which break a documentation example or tutorial are breaking.
+* A change to macro syntax is breaking if it breaks documented and tested functionality, or if there is changed functionality does not have an alternative which is supported both before and after the change.
+
 ## Changes that are not considered breaking
 
-Everything on this list can, in theory, break users' code.
-See [XKCD#1172](https://xkcd.com/1172/).
+Everything on this list can, in theory, break users' code. See [XKCD#1172](https://xkcd.com/1172/).
 However, we consider changes to these things to be non-breaking from the perspective of package versioning.
 
 *   **Bugs:** We may make backwards incompatible behavior changes if the current implementation is clearly broken, that is, if it contradicts the documentation or if a well-understood behavior is not properly implemented due to a bug.
 *   **Internal changes:** Non-public API may be changed or removed.
-    The public API is defined as all exported symbols, plus any unexported symbols that are explicitly documented as part of the public API, for instance, documented as part of standard usage in the README or hosted documentation.
 *   **Exception behavior:**
-    *   Exceptions may be replaced with non-error behavior.
-    For instance, we may change a function to compute a result instead of raising an exception, even if that error is documented.
-
+    *   Exceptions may be replaced with non-error behavior. For instance, we may change a function to compute a result instead of raising an exception, even if that error is documented.
     *   Error message text may change.
     *   Exception types may change unless the exception type for a specific error condition is specified in the documentation.
 *   **Floating-point numerical details:** The specific floating-point values may change at any time.
@@ -243,6 +253,23 @@ However, we consider changes to these things to be non-breaking from the perspec
     Changing the string representation often breaks downstream packages tests, because it is hard to write test-cases that depend only on meaning (though unit tests with mocking can be shielded from this kind of breaking).
 
 (This guidance on non-breaking changes is inspired by [https://www.tensorflow.org/guide/versions](https://www.tensorflow.org/guide/versions).)
+
+## Clarity on the Definition of Breaking in Macros
+
+Note that the definition of breaking on macros is slightly larger than changes to its public API. This is due to the natural difficulty of documenting all parsable behaviors of
+macros and the difficulty of developing deprecation paths for changes to macro sytnax. Thus in order to improve stability of the ecosystem with respect to macro changes, a more
+conservative definition of breaking is taken such that any change which does not have a backwards compatible alternative is considered breaking. 
+
+For example, if a macro had accidentally parsed `@myequation 2x + 2 +` the same as `@myequation 2x + 2`, it is not breaking to remove support for the trailing operator. If the
+trailing operator meant something which is not expressable in another way, and it is used in downstream packages, then it is considered a breaking change to remove this support.
+
+## Implicit Public API and Downstream Breakage
+
+* Packages should be using downstream testing on major downstream packages and use cases
+* If a downstream package test breaks, the break should be investigated as to whether the change should be classified as breaking breaking.
+* If many downstream packages break due to a change that is on the non-public API, a judgement call should be made as to whether the public API should be expanded to match the general user expectation.
+   * It is recommended to err on the side of conservative. If the functionality is not difficult to support, it should continue to be supported. Documentation and testing should be added immediately and it should be elevated to public API via the `public` keyword or `export`.
+   * If it was not an intended to be used in an outside manner, a deprecation or warning should be employed to warn developer of a coming future break, and the internal usage should be changed to use the `_` internal identifier. For example, if `MyPackage.f` is used, a new function `MyPackage._f` should be created, used intnerally, and a deprecation notice telling users to not rely on `MyPackage.f` should be added.
 
 # Appendix:
 
