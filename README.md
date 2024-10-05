@@ -261,7 +261,7 @@ macros and the difficulty of developing deprecation paths for changes to macro s
 conservative definition of breaking is taken such that any change which does not have a backwards compatible alternative is considered breaking. 
 
 For example, if a macro had accidentally parsed `@myequation 2x + 2 +` the same as `@myequation 2x + 2`, it is not breaking to remove support for the trailing operator. If the
-trailing operator meant something which is not expressable in another way, and it is used in downstream packages, then it is considered a breaking change to remove this support.
+trailing operator meant something which is not expressible in another way, and it is used in downstream packages, then it is considered a breaking change to remove this support.
 
 ## Implicit Public API and Downstream Breakage
 
