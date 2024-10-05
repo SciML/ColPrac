@@ -257,7 +257,7 @@ However, we consider changes to these things to be non-breaking from the perspec
 ## Clarity on the Definition of Breaking in Macros
 
 Note that the definition of breaking on macros is slightly larger than changes to its public API. This is due to the natural difficulty of documenting all parsable behaviors of
-macros and the difficulty of developing deprecation paths for changes to macro sytnax. Thus in order to improve stability of the ecosystem with respect to macro changes, a more
+macros and the difficulty of developing deprecation paths for changes to macro syntax. Thus in order to improve stability of the ecosystem with respect to macro changes, a more
 conservative definition of breaking is taken such that any change which does not have a backwards compatible alternative is considered breaking. 
 
 For example, if a macro had accidentally parsed `@myequation 2x + 2 +` the same as `@myequation 2x + 2`, it is not breaking to remove support for the trailing operator. If the
