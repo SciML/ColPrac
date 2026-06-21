@@ -10,5 +10,9 @@ on:
 
 jobs:
   build:
+    permissions:
+      actions: write
+      contents: write
+      statuses: write
     uses: "SciML/.github/.github/workflows/documentation.yml@v1"
     secrets: "inherit"
