@@ -198,7 +198,13 @@ Simply releasing a patch for PackageA (v1.1.1) that removes support for v0.4 won
 It might seem sufficient to just pin the downstream packages to use v1.0.0, but there may be a lot of them to fix, and you can't be certain you're aware of them all.
 It also does nothing to prevent new compatibility issues from arising in the future.
 
-To fix this, you should still release a patch of PackageA (v1.1.1) that removes support for v0.4 of PackageB, but you should then mark v1.1.0 of PackageA as broken in the registry.
+To fix this, you should still release a patch of PackageA (v1.1.1) that removes support for v0.4 of PackageB, and also remove the compatability from
+Compat.toml for the package in the general registry. This should require changing two compat bounds - removing the julia version from the package 
+version that will not work with it, and adding the package version to the julia version it is in fact compatible with.
+
+In some circumstances it may still be necessary to yank a package version, for example where there is a security vulnerability or malicious code like ` rm -rf ` that needs immediate removal, or when the registered version does not
+work on any Julia version at all and a bumping a minor version will not prevent it being loaded by some julia versions.
+
 To do this, simply make a PR to the registry, adding `yanked = true` to the `Version.toml` file under the version causing issues (in this case v1.1.0).
 This marks the release as broken and prevents it from being used by any package from then on.
 
