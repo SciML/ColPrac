@@ -1,4 +1,4 @@
-name: Documentation
+name: "Documentation"
 
 on:
   push:
@@ -8,7 +8,21 @@ on:
     tags: '*'
   pull_request:
 
+# The reusable documentation workflow requests these permissions for its
+# build job; declare them here so the call starts even when the repo's
+# default GITHUB_TOKEN permissions are read-only.
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != github.event.repository.default_branch || github.ref != 'refs/tags/v*' }}
+
 jobs:
-  build:
+  build-and-deploy-docs:
+    name: "Documentation"
     uses: "SciML/.github/.github/workflows/documentation.yml@v1"
     secrets: "inherit"
